@@ -1,0 +1,44 @@
+@use 'variables' as *;
+
+// ============================================================
+// Flex centrado con gap opcional
+// ============================================================
+@mixin flex-center($gap: 0) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @if $gap > 0 { gap: $gap; }
+}
+
+// ============================================================
+// Hover con elevación y sombra de color
+// ============================================================
+@mixin hover-lift($color, $shadow-alpha: 0.4) {
+  background: $color;
+  color: $color-blanco;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba($color, $shadow-alpha);
+}
+
+// ============================================================
+// Botón outline que se rellena al hover
+// ============================================================
+@mixin btn-outline($color) {
+  border: 2px solid $color;
+  color: $color;
+  background-color: $color-blanco;
+
+  &:hover {
+    @include hover-lift($color);
+  }
+}
+
+// ============================================================
+// Estado activo/hover de nav items
+// ============================================================
+@mixin nav-active($color) {
+  background: $color;
+  color: $color-blanco;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba($color, 0.4);
+}

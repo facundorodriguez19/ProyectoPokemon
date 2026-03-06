@@ -1,0 +1,72 @@
+@use '../abstracts/variables' as *;
+
+// ============================================================
+// FOOTER — compartido en todas las páginas
+// ============================================================
+
+.footer-custom {
+  background-color: $color-footer-bg;
+}
+
+.footer-link {
+  color: $color-blanco;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    color: $color-amarillo;
+    padding-left: 5px;
+  }
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #bbb;
+  transition: $transition-base;
+
+  &:hover {
+    color: $color-amarillo;
+    transform: scale(1.2);
+  }
+}
+
+// ============================================================
+// MEDIA QUERIES — Footer
+// ============================================================
+
+@media (max-width: 1023px) and (min-width: 480px) {
+  .footer-custom {
+    text-align: center;
+
+    .d-flex { justify-content: center; }
+  }
+
+  .social-icon { font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+  .footer-custom {
+    text-align: center;
+
+    .d-flex { justify-content: center; }
+  }
+
+  .social-icon { font-size: 20px; }
+}
+
+// Mobile
+@media (max-width: 480px) {
+
+  .footer-custom {
+    text-align: center;
+    padding: 32px 16px 24px;
+
+    .d-flex { justify-content: center; }
+
+    p { font-size: 14px; }
+  }
+
+  .social-icon { font-size: 1.3rem; }
+
+  .footer-link { font-size: 14px; }
+}

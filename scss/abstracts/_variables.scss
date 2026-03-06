@@ -1,0 +1,47 @@
+// ============================================================
+// COLORES
+// ============================================================
+
+$color-amarillo:    #f5a623;
+$color-azul:        #4a90e2;
+$color-rojo:        #ff5757;
+$color-rojo-btn:    red;
+$color-negro:       #000;
+$color-negro-suave: #111;
+$color-blanco:      #fff;
+$color-gris-texto:  #4f5d6b;
+$color-gris-claro:  #f5f5f5;
+$color-footer-bg:   #111;
+
+// ============================================================
+// TIPOGRAFÍA
+// ============================================================
+
+$font-main:      'Poppins', sans-serif;
+$font-noticias:  Arial, Helvetica, sans-serif;
+
+// ============================================================
+// BORDER RADIUS
+// ============================================================
+
+$radius-sm:   4px;
+$radius-md:   8px;
+$radius-lg:   12px;
+$radius-xl:   16px;
+$radius-pill: 20px;
+
+// ============================================================
+// TRANSICIONES
+// ============================================================
+
+$transition-base: all 0.3s ease;
+$transition-fast: all 0.25s ease;
+$transition-card: all 0.35s ease;
+
+// ============================================================
+// ANCHOS MÁXIMOS
+// ============================================================
+
+$max-width-main:    1366px;
+$max-width-content: 1200px;
+$max-width-pokedex: 1100px;

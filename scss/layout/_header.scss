@@ -1,0 +1,245 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================================
+// HEADER 1 — index.html
+// ============================================================
+
+.header {
+  background: radial-gradient(circle at center, #1a1a1a, $color-negro);
+  height: 190px;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.links-heder {
+  text-decoration: none;
+}
+
+.logo {
+  width: 280px;
+  height: auto;
+}
+
+.nav-item {
+  @include flex-center(10px);
+  padding: 10px 22px;
+  border-radius: $radius-lg;
+  font-weight: bold;
+  cursor: pointer;
+  transition: $transition-fast;
+  background: $color-blanco;
+  box-shadow: 0 4px 12px rgba($color-negro, 0.1);
+
+  &.pokedex-btn {
+    border: 2px solid $color-amarillo;
+    color: $color-amarillo;
+
+    &:hover { @include hover-lift($color-amarillo); }
+  }
+
+  &.noticias-btn {
+    border: 2px solid $color-azul;
+    color: $color-azul;
+
+    &:hover { @include hover-lift($color-azul); }
+  }
+}
+
+// ============================================================
+// HEADER 2 — páginas internas
+// ============================================================
+
+.header-2 {
+  background: radial-gradient(circle at center, #1a1a1a, $color-negro);
+  border-bottom: 1px solid #333;
+}
+
+.header-container-2 {
+  max-width: $max-width-content;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.logo-img-2 {
+  width: 250px;
+}
+
+.nav-2 {
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+}
+
+.nav-item-2 {
+  position: relative;
+  padding: 12px 40px;
+  text-decoration: none;
+  color: #2c3e50;
+  background: $color-blanco;
+  border: 1px solid #ddd;
+  border-radius: $radius-lg;
+  transition: $transition-base;
+  overflow: hidden;
+  font-weight: bold;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+
+  &.blue-2 {
+    color: $color-azul;
+    border-color: $color-azul;
+
+    &:hover  { @include nav-active($color-azul); }
+    &.active { @include nav-active($color-azul); }
+  }
+
+  &.yellow-2 {
+    color: $color-amarillo;
+    border-color: $color-amarillo;
+
+    &:hover  { @include nav-active($color-amarillo); }
+    &.active { @include nav-active($color-amarillo); }
+  }
+}
+
+// ============================================================
+// MEDIA QUERIES — Header
+// ============================================================
+
+// Tablet
+@media (max-width: 1023px) and (min-width: 481px) {
+
+  .header {
+    height: auto;
+    padding: 16px 24px;
+    gap: 30px;
+  }
+
+  .logo { width: 220px; }
+
+  .header-container-2 { padding: 10px 20px; }
+
+  .logo-img-2 { width: 180px; }
+
+  .nav-2 { gap: 10px; }
+
+  .nav-item-2 {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
+
+// Mobile
+@media (max-width: 480px) {
+
+  .header {
+    position: relative;
+    height: auto;
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
+
+  .logo { width: 160px; }
+
+  // Menú desplegable — cae debajo del header
+  #menuMobile {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1a1a1a;
+    z-index: 999;
+  }
+
+  .mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0 20px;
+    width: 100%;
+  }
+
+  .mobile-menu-link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 0;
+    width: 80%;
+    text-align: center;
+    border-radius: $radius-lg;
+    transition: $transition-fast;
+
+    &.yellow {
+      border: 2px solid $color-amarillo;
+      color: $color-amarillo;
+      &:hover { @include hover-lift($color-amarillo); }
+    }
+
+    &.blue {
+      border: 2px solid $color-azul;
+      color: $color-azul;
+      &:hover { @include hover-lift($color-azul); }
+    }
+  }
+
+  // Botón hamburguesa personalizado
+  .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: $radius-md;
+    cursor: pointer;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: $color-blanco;
+      border-radius: 3px;
+      transition: $transition-base;
+    }
+
+    // Animación a X cuando está abierto
+    &[aria-expanded="true"] {
+      span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    }
+  }
+
+  .header-container-2 { padding: 10px 16px; }
+
+  .logo-img-2 { width: 130px; }
+
+  .nav-2 { gap: 8px; }
+
+  .nav-item-2 {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}

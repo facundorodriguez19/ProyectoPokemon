@@ -1,0 +1,239 @@
+@use '../abstracts/variables' as *;
+
+// ============================================================
+// SECCIÓN PRINCIPAL
+// ============================================================
+
+.pokedex-seccion {
+  padding: 40px 0 60px;
+}
+
+.pokedex-intro {
+  margin-bottom: 32px;
+}
+
+.pokedex-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.pokedex-descripcion {
+  font-size: 1rem;
+  color: $color-gris-texto;
+  max-width: 600px;
+}
+
+.pokedex-generacion {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #555;
+  border-left: 4px solid $color-amarillo;
+  padding-left: 12px;
+  margin: 32px 0 20px;
+}
+
+// ============================================================
+// ALERT INFORMATIVO
+// ============================================================
+
+.pokedex-alert {
+  border-radius: $radius-lg;
+  font-size: 0.95rem;
+  margin: 24px 0 32px;
+}
+
+// ============================================================
+// GRID DE POKÉMON
+// ============================================================
+
+.pokedex-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: $max-width-pokedex;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.pokedex-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $color-gris-claro;
+  border-radius: $radius-lg;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba($color-negro, 0.15);
+  }
+
+  img {
+    display: block;
+    margin: 0 auto 12px;
+    max-width: 160px;
+  }
+}
+
+.pokedex-number {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #9a9a9a;
+}
+
+.pokedex-name {
+  font-size: 20px;
+  margin: 6px 0 10px;
+  color: #222;
+}
+
+.types-pokedex {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.type-pokedex {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: $radius-lg;
+  color: $color-blanco;
+  text-transform: capitalize;
+}
+
+// ============================================================
+// BUSCADOR
+// ============================================================
+
+.pokedex-navbar {
+  padding: 10px;
+
+  h2 { font-weight: 600; }
+
+  .form-control { border-radius: 8px 0 0 8px; }
+
+  .btn {
+    border-radius: 0 8px 8px 0;
+    font-size: 18px;
+
+    &:hover { transform: translateY(-2px); }
+  }
+}
+
+.info-box {
+  border-radius: $radius-md;
+}
+
+.custom-container {
+  max-width: 1090px;
+}
+
+// ============================================================
+// TABLA RESUMEN DE TIPOS
+// ============================================================
+
+.pokedex-tabla-wrapper {
+  margin-top: 48px;
+}
+
+.tabla-tipos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  th {
+    background: $color-negro-suave;
+    color: $color-blanco;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+    vertical-align: middle;
+  }
+
+  tr:nth-child(even) td {
+    background: #f9f9f9;
+  }
+
+  tr:hover td {
+    background: #f0f4ff;
+    transition: $transition-fast;
+  }
+}
+
+// ============================================================
+// MEDIA QUERIES — Pokédex
+// ============================================================
+
+@media (max-width: 1023px) and (min-width: 480px) {
+  .pokedex-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .pokedex-card img { max-width: 130px; }
+
+  .pokedex-titulo     { font-size: 1.5rem; }
+  .pokedex-tabla-wrapper { overflow-x: auto; }
+
+  .pokedex-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 15px auto;
+  }
+
+  .pokedex-card {
+    padding: 14px;
+
+    img { max-width: 110px; }
+  }
+
+  .pokedex-name { font-size: 16px; }
+
+  .pokedex-number {
+    font-size: 11px;
+    top: 10px;
+    right: 12px;
+  }
+
+  .type-pokedex {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .pokedex-navbar {
+    padding: 25px 15px;
+
+    h2 {
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .row  { flex-direction: column-reverse; }
+    form  { justify-content: center; }
+
+    .form-control { font-size: 14px; }
+    .btn          { padding: 6px 14px; }
+  }
+
+  .info-box {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .small { text-align: center; }
+}

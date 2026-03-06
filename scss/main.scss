@@ -1,0 +1,20 @@
+// ============================================================
+// MAIN.SCSS — punto de entrada
+// Importa todos los parciales en orden correcto
+// ============================================================
+
+// 1. Abstracts (variables y mixins — sin output CSS)
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins'    as *;
+
+// 2. Base (reset y estilos globales)
+@use 'base/reset';
+
+// 3. Layout (header y footer compartidos)
+@use 'layout/header';
+@use 'layout/footer';
+
+// 4. Pages (estilos específicos por página)
+@use 'pages/index';
+@use 'pages/pokedex';
+@use 'pages/noticias';
