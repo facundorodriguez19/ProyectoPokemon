@@ -257,8 +257,8 @@ body {
     padding: 10px 16px;
   }
   .logo-img-2 {
-    width: 130px;
-  }
+    width: 115px;
+}
   .nav-2 {
     gap: 8px;
   }
@@ -554,6 +554,7 @@ body {
 .btn-ver-todos {
   display: inline-flex;
   align-items: center;
+  margin-top: 50px;
   gap: 8px;
   padding: 14px 32px;
   background: #111;
@@ -1009,6 +1010,7 @@ body {
 
 .pokedex-tabla-wrapper {
   margin-top: 48px;
+   display: none !important;
 }
 
 .tabla-tipos {
@@ -1050,6 +1052,7 @@ body {
   }
   .pokedex-tabla-wrapper {
     overflow-x: auto;
+    
   }
   .pokedex-grid {
     grid-template-columns: 1fr;
