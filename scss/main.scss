@@ -15,6 +15,6 @@
 @use 'layout/footer';
 
 // 4. Pages (estilos específicos por página)
-@use 'pages/index';
-@use 'pages/pokedex';
-@use 'pages/noticias';
+@use 'estilos_pages/index';
+@use 'estilos_pages/pokedex';
+@use 'estilos_pages/noticias';
