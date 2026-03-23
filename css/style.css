@@ -257,8 +257,8 @@ body {
     padding: 10px 16px;
   }
   .logo-img-2 {
-    width: 115px;
-}
+    width: 130px;
+  }
   .nav-2 {
     gap: 8px;
   }
@@ -437,8 +437,19 @@ body {
 .pokemon-row {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 30px;
+  overflow-x: auto;
+  padding: 20px 0 40px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.pokemon-row::-webkit-scrollbar {
+  display: none;
+}
+.pokemon-row {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .pokemon-row:hover .card {
   opacity: 0.15;
@@ -467,6 +478,8 @@ body {
 }
 .card img {
   height: 120px;
+  display: block;
+  margin: 0 auto;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -499,10 +512,14 @@ body {
   opacity: 1;
   transform: scale(1.15);
   z-index: 2;
+  scroll-snap-align: center;
 }
 .card.active .name,
 .card.active .info {
   opacity: 1;
+}
+.card {
+  scroll-snap-align: center;
 }
 
 .card-number {
@@ -810,10 +827,12 @@ body {
     text-align: center;
   }
   .pokemon-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 0 16px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding: 20px 16px 40px;
+    overflow-x: auto;
   }
   .pokemon-row:hover .card {
     opacity: 1;
@@ -1010,7 +1029,6 @@ body {
 
 .pokedex-tabla-wrapper {
   margin-top: 48px;
-   display: none !important;
 }
 
 .tabla-tipos {
@@ -1052,7 +1070,6 @@ body {
   }
   .pokedex-tabla-wrapper {
     overflow-x: auto;
-    
   }
   .pokedex-grid {
     grid-template-columns: 1fr;

@@ -121,8 +121,17 @@
 .pokemon-row {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 30px;
+  overflow-x: auto;
+  padding: 20px 0 40px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  // Ocultar scrollbar
+  &::-webkit-scrollbar { display: none; }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   &:hover .card              { opacity: 0.15; }
   &:not(:hover) .card.active { opacity: 1; }
@@ -148,6 +157,8 @@
 
   img {
     height: 120px;
+    display: block;
+    margin: 0 auto;
     object-fit: contain;
     transition: transform 0.3s ease;
   }
@@ -176,10 +187,13 @@
     opacity: 1;
     transform: scale(1.15);
     z-index: 2;
+    scroll-snap-align: center;
 
     .name,
     .info { opacity: 1; }
   }
+
+  scroll-snap-align: center;
 }
 
 .card-number {
@@ -427,12 +441,14 @@
     text-align: center;
   }
 
-  // Cards en grilla 2x en mobile
+  // Cards en carrusel en mobile
   .pokemon-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 0 16px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding: 20px 16px 40px;
+    overflow-x: auto;
 
     &:hover .card { opacity: 1; }
     &:not(:hover) .card.active { opacity: 1; }
